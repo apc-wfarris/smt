@@ -1,0 +1,11 @@
+---
+permalink: /api/remotes.json
+---
+
+[ {%- for remote in remotes -%}
+{
+  "id": {{ remote.id }},
+  "description": "{{ remote.description }}", 
+  "visible": {{ remote.visible }}
+}{%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%} ]

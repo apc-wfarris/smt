@@ -1,0 +1,44 @@
+---
+layout: layout.liquid
+scripts: [/js/home.js]
+---
+
+<section>
+  <h3>System Information</h3>
+  <form id="sys-info-form" class="two-by-grid-form">
+    <label for="sys-name-input">Name:</label>
+    <input name="sys-name-input" type="text" value="{{ sysInfo.name }}" disabled/>
+    <label for="sys-type-input">Type:</label>
+    <select name="sys-type-input" value="{{ sysInfo.type }}" disabled>
+      {%- for option in sysInfo.typeOptions %}
+      <option value="{{ forloop.index }}"
+      {%- if forloop.index == sysInfo.type %}
+      selected
+      {%- endif %}>
+      {{ option }}
+      </option>
+      {%- endfor %}
+    </select>
+    <input type="submit" value="Edit">
+  </form>
+</section>
+
+<section>
+  <h3>Chemical Info</h3>
+  <h4>Chem 1</h4>
+  <form id="chem-1-form" class="two-by-grid-form">
+    <label for="chem1-brand">Brand:</label>
+    <input name="chem1-brand" type="text" value="{{ chem.chem_1_brand }}" disabled>
+    <label for="chem1-dilution">Dilution:</label>
+    <input name="chem1-dilution" type="text" value="{{ chem.chem_1_dilution }}" disabled>
+    <input type="submit" name="chem-1-edit-button" value="Edit">
+  </form>
+  <h4>Chem 2</h4>
+  <form id="chem-2-form" class="two-by-grid-form">
+    <label for="chem2-brand">Brand:</label>
+    <input name="chem2-brand" type="text" value="{{ chem.chem_2_brand }}" disabled>
+    <label for="chem2-dilution">Dilution:</label>
+    <input name="chem2-dilution" type="text" value="{{ chem.chem_2_dilution }}" disabled>
+    <input type="submit" name="chem-2-edit-button" value="Edit">
+  </form>
+</section>

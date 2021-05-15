@@ -1,0 +1,64 @@
+:root {
+  --spray-blue: rgb(0, 174, 239);
+  --master-black: rgb(58, 58, 60);
+  --form-background: rgba(0, 174, 239, 0.3);
+  --body-background: rgb(255, 255, 255);
+  --main-background: rgb(246, 246, 246);
+  --main-border: 2px solid black;
+  font-family: sans-serif;
+}
+body {
+  margin: 5rem 10rem;
+  background: var(--body-background);
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 80px auto 80px;
+  grid-template-areas:
+    "side-bar main sys-info"
+    "side-bar main sys-info"
+    ". footer footer";
+  gap: 0 3rem;
+}
+main {
+  grid-area: main;
+  background-color: var(--main-background);
+  border: var(--main-border);
+  border-radius: 10px;
+  padding: 1rem;
+}
+nav {
+  grid-area: side-bar;
+}
+nav > * {
+  display: block;
+  width: 100%;
+}
+/* right side bar with time/date info */
+.sys-info {
+  grid-area: sys-info;
+}
+/* give the labels a little space */
+.sys-info > * {
+  margin-bottom: 3px;
+}
+
+.border {
+  border: 1px solid var(--master-black);
+}
+
+.two-by-grid-form {
+  display: grid;
+  grid-template-columns: 4rem max-content;
+  grid-template-rows: auto;
+  row-gap: 4px;
+  align-content: center;
+}
+.two-by-grid-form label {
+  text-align: right;
+}
+.two-by-grid-form button,
+.two-by-grid-form input[type="submit"] {
+  grid-column: 2;
+  place-self: end;
+  width: 33%;
+}

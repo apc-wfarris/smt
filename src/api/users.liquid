@@ -1,0 +1,13 @@
+---
+permalink: /api/users.json
+---
+
+[ {%- for user in users -%}
+{
+  "id": {{ user.id }},
+  "fname": "{{ user.fname }}", 
+  "lname": "{{ user.lname }}",
+  "password": "{{ user.password }}",
+  "permit": {{ user.permit }}
+}{%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%} ]
