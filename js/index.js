@@ -1,4 +1,4 @@
-import { setSystemDateSpan, setSystemTimeSpan } from "/js/date-time.js";
+import { setSystemDateSpan, setSystemTimeSpan } from "./date-time.js";
 
 setSystemDateSpan();
 setSystemTimeSpan();

@@ -4,6 +4,8 @@ const sysInfoId = "sys-info-form";
 const chem1Id = "chem-1-form";
 const chem2Id = "chem-2-form";
 
+// sends requests to update the info stored
+// about the system name and the system type
 const sysInfoFormSubmit = (form) => {
   const data = Object.fromEntries(new FormData(form).entries());
   const requestBody = `sysData=${data["sys-name-input"]},${data["sys-type-input"]}`;
@@ -16,6 +18,8 @@ const sysInfoFormSubmit = (form) => {
   });
 };
 
+// sends requests to update a given
+// chemical's brand/dilution
 const chemSubmitter = (form) => {
   const data = Array.from(new FormData(form).entries());
   const requests = data.map((d) => d.join("="));

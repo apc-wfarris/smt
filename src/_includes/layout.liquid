@@ -16,6 +16,9 @@ links:
     {% for script in scripts %}
     <script src="{{ script }}" defer type="module"></script>
     {% endfor %}
+    {% for sheet in css %}
+    <link rel="stylesheet" href="{{ sheet }}" />
+    {% endfor %}
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="assets/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

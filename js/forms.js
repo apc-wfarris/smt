@@ -1,4 +1,4 @@
-export const getInputElements = (formElement) =>
+const getInputElements = (formElement) =>
   formElement.querySelectorAll("select, input");
 
 /**
@@ -28,5 +28,6 @@ export const createStatefulForm = (formId, cb) => {
 
 /**
  * This callback is run whenever the form is submitted in edit mode.
+ * @callback submissionHandler
  * @param {HTMLFormElement} form Form selected from parent's formId
  */
