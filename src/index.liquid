@@ -45,8 +45,16 @@ css: [/assets/home.css]
 </section>
 </div>
 <div>
-  <section>
-    <h3>Hello</h3>
+  <section class="led-status">
+    <h3>System Status</h3>
+    <div id="flow-led">{% include light-bulb %}<span>Flow</span></div>
+    <div id="rinse-led">{% include light-bulb %}<span>Rinse</span></div>
+    <div id="chem1-led">{% include light-bulb %}<span>Chem 1</span></div>
+    <div id="chem2-led">{% include light-bulb %}<span>Chem 2</span></div>
+    <div id="sensors-led">{% include light-bulb %}<span>Sensors</span></div>
+    <div id="motor-led">{% include light-bulb %}<span>Motor En</span></div>
+    <div id="chem1-on-led">{% include light-bulb %}<span>Chem 1 ON</span></div>
+    <div id="chem2-on-led">{% include light-bulb %}<span>Chem 2 ON</span></div>
   </section>
 </div>
 

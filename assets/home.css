@@ -2,3 +2,18 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.led-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 1rem;
+  width: 60%;
+}
+.led-status > h3 {
+  grid-column: 1/-1;
+}
+.led-status span {
+  text-align: center;
+  padding: 0.5rem;
+}
