@@ -3,7 +3,7 @@ const createRemoteTableCells = (remote) => {
   const visibleCell = document.createElement("td");
 
   descriptionCell.textContent = remote.description;
-  visibleCell.textContent = remote.permit ? "Yes" : "No";
+  visibleCell.textContent = remote.visible ? "Yes" : "No";
 
   return [descriptionCell, visibleCell];
 };
