@@ -25,16 +25,18 @@ links:
     <title>{{ title }}</title>
   </head>
   <body>
+    <section>
     <nav>
       <a href="/"><img src="assets/smt.png" width="300px" /></a>
       {% for link in links %}
       <a href="{{ link.href }}">{{ link.name }}</a>
       {%- endfor -%}
     </nav>
+    </section>
     <main>
       {{ content }}
     </main>
-    <div class="sys-info">
+    <section class="sys-info">
       <div>Date: <span id="system-date">___</span></div>
       <div>Time: <span id="system-time">___</span></div>
       <div>Chip Date: <span id="chip-date">___</span></div>
@@ -42,6 +44,17 @@ links:
       <div>System Hours: {{ sysInfo.hours }}</div>
       <div>MAC: {{ sysInfo.mac }}</div>
       <div>Remote: {{ sysInfo.rem }}</div>
-    </div>
+      <div class="led-status">
+        <h3>System Status</h3>
+        <div id="flow-led">{% include cog %}<span>Flow</span></div>
+        <div id="rinse-led">{% include cog %}<span>Rinse</span></div>
+        <div id="chem1-led">{% include cog %}<span>Chem 1</span></div>
+        <div id="chem2-led">{% include cog %}<span>Chem 2</span></div>
+        <div id="sensors-led">{% include cog %}<span>Sensors</span></div>
+        <div id="motor-led">{% include cog %}<span>Motor En</span></div>
+        <div id="chem1-on-led">{% include cog %}<span>Chem 1 ON</span></div>
+        <div id="chem2-on-led">{% include cog %}<span>Chem 2 ON</span></div>
+      </div>
+    </section>
   </body>
 </html>

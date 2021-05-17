@@ -20,11 +20,8 @@ body {
   background: var(--body-background);
   display: grid;
   grid-template-columns: 1fr max-content 1fr;
-  grid-template-rows: 80px auto 80px;
-  grid-template-areas:
-    "side-bar main sys-info"
-    "side-bar main sys-info"
-    ". footer footer";
+  grid-template-rows: max-content;
+  grid-template-areas: "side-bar main sys-info";
   gap: 0 3rem;
 }
 
@@ -63,6 +60,10 @@ table * {
   border: 1px solid black;
 }
 
+tr {
+  height: 1.5rem;
+}
+
 /* right side bar with time/date info */
 .sys-info {
   grid-area: sys-info;
@@ -96,6 +97,14 @@ table * {
   place-self: end;
   width: 33%;
 }
+
+.two-col {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: inherit;
+}
+
 .float-link {
   float: right;
 }
