@@ -47,14 +47,43 @@ css: [/assets/home.css]
 <div>
   <section class="led-status">
     <h3>System Status</h3>
-    <div id="flow-led">{% include light-bulb %}<span>Flow</span></div>
-    <div id="rinse-led">{% include light-bulb %}<span>Rinse</span></div>
-    <div id="chem1-led">{% include light-bulb %}<span>Chem 1</span></div>
-    <div id="chem2-led">{% include light-bulb %}<span>Chem 2</span></div>
-    <div id="sensors-led">{% include light-bulb %}<span>Sensors</span></div>
-    <div id="motor-led">{% include light-bulb %}<span>Motor En</span></div>
-    <div id="chem1-on-led">{% include light-bulb %}<span>Chem 1 ON</span></div>
-    <div id="chem2-on-led">{% include light-bulb %}<span>Chem 2 ON</span></div>
+    <div id="flow-led">{% include cog %}<span>Flow</span></div>
+    <div id="rinse-led">{% include cog %}<span>Rinse</span></div>
+    <div id="chem1-led">{% include cog %}<span>Chem 1</span></div>
+    <div id="chem2-led">{% include cog %}<span>Chem 2</span></div>
+    <div id="sensors-led">{% include cog %}<span>Sensors</span></div>
+    <div id="motor-led">{% include cog %}<span>Motor En</span></div>
+    <div id="chem1-on-led">{% include cog %}<span>Chem 1 ON</span></div>
+    <div id="chem2-on-led">{% include cog %}<span>Chem 2 ON</span></div>
+  </section>
+</div>
+<div>
+  <section>
+    <a class="float-link" href="user-man.html">Manage</a>
+    <h3>Users</h3>
+    <table id="users-table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Permit</th>
+        </tr>
+      </thead>
+    </table>
+  </section>
+</div>
+<div>
+  <section>
+    <a class="float-link" href="remote-man.html">Manage</a>
+    <h3>Remotes</h3>
+    <table id="remotes-table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Visible</th>
+        </tr>
+      </thead>
+    </table>
   </section>
 </div>
 

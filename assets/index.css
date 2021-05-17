@@ -1,21 +1,25 @@
 :root {
   --spray-blue: rgb(0, 174, 239);
   --master-black: rgb(58, 58, 60);
-  --form-background: rgba(0, 174, 239, 0.3);
+  --form-border-color: rgba(0, 174, 239, 0.3);
   --body-background: rgb(255, 255, 255);
   --main-background: rgb(246, 246, 246);
-  --main-border: 2px solid black;
+  --shadow: 0px 0px 8px 0px rgb(226, 226, 226);
+  --led-on: rgb(12, 136, 47);
+  --led-off: rgb(219, 80, 74);
+  --main-border: 3px solid black;
   --sub-border: 1px solid var(--master-black);
+  --form-border: 3px solid var(--spray-blue);
   --main-border-radius: 10px;
   --grid-row-gap: 1rem;
   --grid-col-gap: 0.5rem;
   font-family: sans-serif;
+  font-size: 110%;
 }
 body {
-  margin: 5rem 10rem;
   background: var(--body-background);
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr max-content 1fr;
   grid-template-rows: 80px auto 80px;
   grid-template-areas:
     "side-bar main sys-info"
@@ -34,15 +38,29 @@ main {
 
 nav {
   grid-area: side-bar;
+  justify-self: end;
 }
 nav > * {
   display: block;
   width: 100%;
+  text-align: right;
 }
 
 section {
   padding: 5px;
   margin-bottom: 5px;
+  background-color: var(--body-background);
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--shadow);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table * {
+  border: 1px solid black;
 }
 
 /* right side bar with time/date info */
@@ -60,7 +78,7 @@ section {
 
 .two-by-grid-form {
   display: grid;
-  grid-template-columns: 4rem minmax(8rem, 60%);
+  grid-template-columns: 4rem max-content;
   grid-template-rows: auto;
   row-gap: var(--grid-row-gap);
   align-content: center;
@@ -68,9 +86,16 @@ section {
 .two-by-grid-form label {
   text-align: right;
 }
+.two-by-grid-form input,
+.two-by-grid-form select {
+  width: 12rem;
+}
 .two-by-grid-form button,
 .two-by-grid-form input[type="submit"] {
   grid-column: 2;
   place-self: end;
   width: 33%;
+}
+.float-link {
+  float: right;
 }

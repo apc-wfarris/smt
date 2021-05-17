@@ -8,7 +8,7 @@ const remoteTildeCalls = Array.from(
   (_, index) => index + 1
 ).map((i) => ({
   id: i,
-  description: PROD ? `~remote${i}_description~` : faker.company.catchPhrase(),
+  description: PROD ? `~remote${i}_description~` : faker.company.bsNoun(),
   visible: PROD ? `~remote${i}_visible~` : faker.datatype.boolean(),
 }));
 

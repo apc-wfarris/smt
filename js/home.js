@@ -1,4 +1,7 @@
 import { createStatefulForm } from "./forms.js";
+import { createLight } from "./lights.js";
+import { fillUserTable } from "./user-table.js";
+import { fillRemoteTable } from "./remote-table.js";
 
 const sysInfoId = "sys-info-form";
 const chem1Id = "chem-1-form";
@@ -26,6 +29,38 @@ const chemSubmitter = (form) => {
   console.log(requests);
 };
 
+// create an object whose key is the id of the led element
+// and whose value is the updater function
+const leds = [
+  "flow-led",
+  "sensors-led",
+  "rinse-led",
+  "chem1-led",
+  "chem2-led",
+  "motor-led",
+  "chem1-on-led",
+  "chem2-on-led",
+].reduce(
+  (ledUpdaters, ledId) => ({
+    ...ledUpdaters,
+    [ledId]: createLight(ledId),
+  }),
+  {}
+);
+
+// fetch the status of each led then find the corresponding
+// kv pair in the above object and run the updater with
+// the value from the api call
+const upateLeds = async () => {
+  const ledStatus = await (await fetch("/api/led-status.json")).json();
+  for (const [led, isOn] of Object.entries(ledStatus)) {
+    leds[led](isOn);
+  }
+};
+
+setInterval(upateLeds, 1000);
 createStatefulForm(sysInfoId, sysInfoFormSubmit);
 createStatefulForm(chem1Id, chemSubmitter);
 createStatefulForm(chem2Id, chemSubmitter);
+fillUserTable();
+fillRemoteTable();
