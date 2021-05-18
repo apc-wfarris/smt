@@ -1,0 +1,47 @@
+---
+layout: layout.liquid
+---
+<div id="content">
+  <h1>Interface Configuration</h1>
+  <p>This page allows the configuration of the board's network settings.</p>
+  <div class="result fail" style="display: ~status_fail~">
+    ERROR: A field was unparsable or too much data was POSTed. Try again.
+  </div>
+  <p class="error">
+    <b>CAUTION:</b> Incorrect settings may cause the board to lose network
+    connectivity.
+  </p>
+  <p>Enter the new settings for the network interface below:</p>
+
+  <form name="config" id="network-form">
+    <div class="two-by-form rounded-blue">
+      <label>Host Name:</label>
+      <input type="text" name="host" value="~config_hostname~" />
+
+      <label>Enable DHCP:</label>
+      <input
+        type="checkbox"
+        class="sm"
+        name="dhcp"
+        value="1"
+        ~config_dhcpchecked~
+      />
+
+      <label>IP Address:</label>
+      <input type="text" name="ip" value="~config_ip~" />
+
+      <label>Gateway:</label>
+      <input type="text" name="gw" value="~config_gw~" />
+
+      <label>Subnet Mask:</label>
+      <input type="text" name="sub" value="~config_subnet~" />
+
+      <label>Primary DNS:</label>
+      <input type="text" name="dns1" value="~config_dns1~" />
+
+      <label>Secondary DNS:</label>
+      <input type="text" name="dns2" value="~config_dns2~" />
+      <input type="submit" class="sm" value="Restart Interface" />
+    </div>
+  </form>
+</div>

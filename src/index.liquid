@@ -46,14 +46,33 @@ css: [/assets/home.css]
 </div>
 <div class="two-col">
   <section>
-    <a class="float-link" href="hours-man.html">Manage</a>
     <h3>Hours Remaining</h3>
-    <table>
-    <tr><td>Water Filter</td><td>{{ component.water_filter_hrs_remaining }}</td></tr>
-    <tr><td>Pump Oil</td><td>{{ component.pump_oil_hrs_remaining }}</td></tr>
-    <tr><td>Pump Rebuild</td><td>{{ component.pump_rebuild_hrs_remaining }}</td></tr>
-    <tr><td>System Flush</td><td>{{ component.system_flush_hrs_remaining }}</td></tr>
-    </table>
+    <form id="hrs-form" class="two-by-grid-form">
+      <label for="water-filter-hrs">Filter:</label>
+      <input name="water-filter-hrs" type="text" value="{{ component.water_filter_hrs_remaining }}" disabled>
+      <button>Reset</button>
+      <label for="pump-oil-hrs">Pump Oil:</label>
+      <input name="pump-oil-hrs" type="text" value="{{ component.pump_oil_hrs_remaining }}" disabled>
+      <button>Reset</button>
+      <label for="pump-rebuild-hrs">Pump Rebuild:</label>
+      <input name="pump-rebuild-hrs" type="text" value="{{ component.pump_rebuild_hrs_remaining }}" disabled>
+      <button>Reset</button>
+      <label for="system-flush-hrs">System Flush:</label>
+      <input name="system-flush-hrs" type="text" value="{{ component.system_flush_hrs_remaining }}" disabled>
+      <button>Reset</button>
+      <input type="submit" name="component-hrs-edit-button" value="Edit">
+    </form>
+  </section>
+  <section class="led-status">
+    <h3>System Status</h3>
+    <div id="flow-led">{% include cog %}<span>Flow</span></div>
+    <div id="rinse-led">{% include cog %}<span>Rinse</span></div>
+    <div id="sensors-led">{% include cog %}<span>Sensors</span></div>
+    <div id="motor-led">{% include cog %}<span>Motor En</span></div>
+    <div id="chem1-led">{% include cog %}<span>Chem 1</span></div>
+    <div id="chem2-led">{% include cog %}<span>Chem 2</span></div>
+    <div id="chem1-on-led">{% include cog %}<span>Chem 1 ON</span></div>
+    <div id="chem2-on-led">{% include cog %}<span>Chem 2 ON</span></div>
   </section>
 </div>
 <div>
