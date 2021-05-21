@@ -8,9 +8,29 @@ const chem1Id = "chem-1-form";
 const chem2Id = "chem-2-form";
 const hoursFormId = "hrs-form";
 
+// set up an event listener for the reset buttons
+// on the hours remaining section
+const hoursFormButtons = document
+  .getElementById(hoursFormId)
+  .querySelectorAll("button");
+hoursFormButtons.forEach((b) => {
+  const compId = b.parentNode.dataset.compId;
+  b.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await fetch("/reset.cgi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application-x-www-formurlencoded",
+      },
+      body: encodeURI(`component=${compId}`),
+    });
+    window.location.reload();
+  });
+});
+
 // sends requests to update the info stored
 // about the system name and the system type
-const sysInfoFormSubmit = (form) => {
+const sysInfoSubmitter = (form) => {
   const data = Object.fromEntries(new FormData(form).entries());
   const requestBody = `sysData=${data["sys-name-input"]},${data["sys-type-input"]}`;
   fetch("name-type.cgi", {
@@ -30,9 +50,17 @@ const chemSubmitter = (form) => {
   console.log(requests);
 };
 
+// the function that runs when the hours form is submitted
 const hoursSubmitter = (form) => {
+  const nameMap = {
+    "pump-oil-hrs": 1,
+    "water-filter-hrs": 2,
+    "pump-rebuild-hrs": 3,
+    "system-flush-hrs": 4,
+  };
   const data = Array.from(new FormData(form).entries());
-  const requests = data.map((d) => d.join("="));
+  // get the id of the component from the name map
+  const requests = data.map((d) => [nameMap[d[0]], d[1]].join("="));
   console.log(requests);
 };
 
@@ -58,16 +86,16 @@ const leds = [
 // fetch the status of each led then find the corresponding
 // kv pair in the above object and run the updater with
 // the value from the api call
-const upateLeds = async () => {
+const updateLeds = async () => {
   const ledStatus = await (await fetch("/api/led-status.json")).json();
   for (const [led, isOn] of Object.entries(ledStatus)) {
     leds[led](isOn);
   }
 };
 
-setInterval(upateLeds, 1000);
-
-createStatefulForm(sysInfoId, sysInfoFormSubmit);
+updateLeds();
+setInterval(updateLeds, 1000);
+createStatefulForm(sysInfoId, sysInfoSubmitter);
 createStatefulForm(chem1Id, chemSubmitter);
 createStatefulForm(chem2Id, chemSubmitter);
 createStatefulForm(hoursFormId, hoursSubmitter);

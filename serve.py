@@ -8,3 +8,5 @@ HandlerClass.extensions_map[".mjs"] = "text/javascript"
 
 with socketserver.TCPServer(("0.0.0.0", 8000), HandlerClass) as httpd:
     httpd.serve_forever()
+
+print("hello")

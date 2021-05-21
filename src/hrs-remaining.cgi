@@ -1,10 +1,10 @@
 This route is for posting the hours remaining of a component.
 
-The components are:
-water-filter-hrs
-pump-oil-hrs
-pump-rebuild-hrs
-system-flush-hrs
+Component IDs:
+oil=1
+filter=2
+rebuild=3
+flush=4
 
 The body should be URI encoded and in the following format:
   {component}={hrs}
@@ -16,5 +16,5 @@ Example using fetch:
     headers: {
       "Content-Type": "application-x-www-formurlencoded",
     },
-    body: encodeURI("water-filter-hrs=50")
+    body: encodeURI("4=50")
   })

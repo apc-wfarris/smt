@@ -64,6 +64,10 @@ tr {
   height: 1.5rem;
 }
 
+fieldset {
+  display: contents;
+}
+
 /* right side bar with time/date info */
 .sys-info {
   grid-area: sys-info;
