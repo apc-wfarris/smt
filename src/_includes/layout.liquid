@@ -4,9 +4,9 @@ links:
   - name: Home
     href: /
   - name: Users
-    href: /users
+    href: /management/user-man
   - name: Remotes
-    href: /remotes
+    href: /management/rem-man
   - name: Network Configuration
     href: /protect/
 ---
@@ -17,8 +17,7 @@ links:
     <script src="/assets/js/index.js" defer type="module"></script>
     {% for script in scripts %}
     <script src="{{ script }}" defer type="module"></script>
-    {% endfor %}
-    {% for sheet in css %}
+    {% endfor %} {% for sheet in css %}
     <link rel="stylesheet" href="{{ sheet }}" />
     {% endfor %}
     <meta charset="UTF-8" />

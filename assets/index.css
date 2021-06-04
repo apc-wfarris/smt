@@ -65,7 +65,7 @@ tr {
 }
 
 fieldset {
-  display: contents;
+  margin: 1.5rem 0;
 }
 
 /* right side bar with time/date info */
@@ -109,4 +109,11 @@ fieldset {
 
 .float-link {
   float: right;
+}
+
+.led-on {
+  fill: var(--led-on);
+}
+.led-off {
+  fill: var(--led-off);
 }

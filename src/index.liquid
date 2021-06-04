@@ -48,26 +48,26 @@ css: [/assets/home.css]
   <section>
     <h3>Hours Remaining</h3>
     <form id="hrs-form" class="two-by-grid-form">
-      <fieldset data-comp-id="1">
+      <div style="display: contents" data-comp-id="1">
         <label for="pump-oil-hrs">Pump Oil:</label>
         <input name="pump-oil-hrs" type="text" value="{{ component.pump_oil_hrs_remaining }}" disabled>
         <button>Reset</button>
-      </fieldset>
-      <fieldset data-comp-id="2">
+      </div>
+      <div style="display: contents" data-comp-id="2">
       <label for="water-filter-hrs">Filter:</label>
       <input name="water-filter-hrs" type="text" value="{{ component.water_filter_hrs_remaining }}" disabled>
       <button>Reset</button>
-      </fieldset>
-      <fieldset data-comp-id="3">
+      </div>
+      <div style="display: contents" data-comp-id="3">
       <label for="pump-rebuild-hrs">Pump Rebuild:</label>
       <input name="pump-rebuild-hrs" type="text" value="{{ component.pump_rebuild_hrs_remaining }}" disabled>
       <button>Reset</button>
-      </fieldset>
-      <fieldset data-comp-id="4">
+      </div>
+      <div style="display: contents" data-comp-id="4">
       <label for="system-flush-hrs">System Flush:</label>
       <input name="system-flush-hrs" type="text" value="{{ component.system_flush_hrs_remaining }}" disabled>
       <button>Reset</button>
-      </fieldset>
+      </div>
       <input type="submit" name="component-hrs-edit-button" value="Edit">
     </form>
   </section>
@@ -85,7 +85,7 @@ css: [/assets/home.css]
 </div>
 <div>
   <section>
-    <a class="float-link" href="user-man.html">Manage</a>
+    <a class="float-link" href="management/user-man">Manage</a>
     <h3>Users</h3>
     <table id="users-table">
       <thead>
@@ -100,7 +100,7 @@ css: [/assets/home.css]
 </div>
 <div>
   <section>
-    <a class="float-link" href="remote-man.html">Manage</a>
+    <a class="float-link" href="management/rem-man">Manage</a>
     <h3>Remotes</h3>
     <table id="remotes-table">
       <thead>

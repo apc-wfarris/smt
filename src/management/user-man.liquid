@@ -1,0 +1,60 @@
+---
+layout: layout.liquid
+scripts: [/assets/js/user-man.js]
+css: [/assets/user-man.css]
+---
+
+<div>
+  <section>
+    <h3>User Management</h3>
+    <form id="user-management-form">
+      {%- for user in users %}
+      <fieldset>
+        <legend>User {{ user.id }}</legend>
+        <div>
+          <label for="user-{{ user.id }}-fname">First Name</label>
+          <input
+            value="{{ user.fname }}"
+            maxlength="20"
+            type="text"
+            name="user-{{ user.id }}-fname"
+          />
+          <label for="user-{{ user.id }}-lname">Last Name</label>
+          <input
+            value="{{ user.lname }}"
+            maxlength="20"
+            type="text"
+            name="user-{{ user.id }}-lname"
+          />
+        </div>
+        <div>
+          <label for="user-{{ user.id }}-pass">Password</label>
+          <input
+            value="{{ user.password }}"
+            maxlength="4"
+            type="text"
+            pattern="\d{4}"
+            name="user-{{ user.id }}-pass"
+          />
+        </div>
+        <div>
+          <label for="user-{{ user.id }}-permit">Permit</label>
+          <input
+            type="checkbox"
+            name="user-{{ user.id }}-permit"
+            {%-
+            if
+            user.permit
+            %}
+            checked
+            {%
+            endif
+            %}
+          />
+        </div>
+      </fieldset>
+      {% endfor %}
+      <input type="submit" value="Submit" />
+    </form>
+  </section>
+</div>

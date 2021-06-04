@@ -2,7 +2,7 @@
  * Sets up the light svg for turning on/off
  * @param {string} lightId ID of the light to set up
  */
-export const createLight = (lightId) => {
+export function createLight(lightId) {
   const lightDiv = document.getElementById(lightId);
   const lightElement = lightDiv.querySelector("svg");
   /**
@@ -18,4 +18,4 @@ export const createLight = (lightId) => {
     }
   };
   return updater;
-};
+}

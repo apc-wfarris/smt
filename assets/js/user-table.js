@@ -1,4 +1,4 @@
-const createUserTableCells = (user) => {
+function createUserTableCells(user) {
   const firstNameCell = document.createElement("td");
   const lastNameCell = document.createElement("td");
   const permit = document.createElement("td");
@@ -8,9 +8,9 @@ const createUserTableCells = (user) => {
   permit.textContent = user.permit ? "Yes" : "No";
 
   return [firstNameCell, lastNameCell, permit];
-};
+}
 
-export const fillUserTable = async () => {
+export async function fillUserTable() {
   const userRequest = await fetch("api/users.json");
   const users = await userRequest.json();
   const userTable = document.getElementById("users-table");
@@ -27,4 +27,4 @@ export const fillUserTable = async () => {
 
       userTable.appendChild(newRow);
     });
-};
+}

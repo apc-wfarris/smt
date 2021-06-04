@@ -1,4 +1,4 @@
-const createRemoteTableCells = (remote) => {
+function createRemoteTableCells(remote) {
   const descriptionCell = document.createElement("td");
   const visibleCell = document.createElement("td");
 
@@ -6,9 +6,9 @@ const createRemoteTableCells = (remote) => {
   visibleCell.textContent = remote.visible ? "Yes" : "No";
 
   return [descriptionCell, visibleCell];
-};
+}
 
-export const fillRemoteTable = async () => {
+export async function fillRemoteTable() {
   const remoteRequest = await fetch("api/remotes.json");
   const remotes = await remoteRequest.json();
   const remoteTable = document.getElementById("remotes-table");
@@ -25,4 +25,4 @@ export const fillRemoteTable = async () => {
 
       remoteTable.appendChild(newRow);
     });
-};
+}

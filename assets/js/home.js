@@ -86,12 +86,12 @@ const leds = [
 // fetch the status of each led then find the corresponding
 // kv pair in the above object and run the updater with
 // the value from the api call
-const updateLeds = async () => {
+async function updateLeds() {
   const ledStatus = await (await fetch("/api/led-status.json")).json();
   for (const [led, isOn] of Object.entries(ledStatus)) {
     leds[led](isOn);
   }
-};
+}
 
 updateLeds();
 setInterval(updateLeds, 1000);
